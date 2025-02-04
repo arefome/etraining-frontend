@@ -6,6 +6,6 @@ export const login = async (email: string) => {
 };
 
 export const verify = async (token: string) => {
-  const { data } = await api.get('/auth/verify', { params: { token } });
+  const { data } = await api.post('/auth/verify', { token });
   return data;
 };
