@@ -1,6 +1,6 @@
 <template>
     <div>
-      <header class="bg-gray-800 text-white p-4">
+      <header :class="prod ? 'bg-gray-800 text-white p-4' : 'bg-gray-500 text-white p-4'">
         <div class="container mx-auto flex justify-between items-center">
           <h1 class="text-xl font-bold">Etraining CRUD</h1>
           <nav v-if="authStore.isAuthenticated">
@@ -19,6 +19,7 @@
   <script setup lang="ts">
   import { useAuthStore } from '../stores/auth';
   const authStore = useAuthStore();
+  const prod = import.meta.env.MODE === 'production';
   const logout = () => {
     authStore.logout();
     window.location.href = '/login';
