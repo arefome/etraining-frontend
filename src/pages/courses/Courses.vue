@@ -2,6 +2,8 @@
 import { ref, onMounted } from 'vue';
 import { useCoursesStore } from '../../stores/courses';
 import CourseForm from '../../components/courses/CourseForm.vue';
+import { toast } from 'vue3-toastify'
+
 
 const coursesStore = useCoursesStore();
 
@@ -22,12 +24,15 @@ const onSubmitCourse = async (courseData: any) => {
   try {
     if (editingCourse.value) {
       await coursesStore.editCourse(editingCourse.value.id, courseData);
+      toast.success('Curso actualizado')
     } else {
       await coursesStore.addCourse(courseData);
+      toast.success('Curso creado')
     }
     showFormModal.value = false;
   } catch (error) {
     console.error(error);
+    toast.error('Ocurrió un error. Por favor, intente más tarde.')
   }
 };
 

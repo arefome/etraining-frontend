@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useUsersStore } from '../../stores/users';
 import UserForm from '../../components/users/UserForm.vue';
+import { toast } from 'vue3-toastify';
 
 const usersStore = useUsersStore();
 
@@ -24,12 +25,15 @@ const onSubmitUser = async (userData: any) => {
   try {
     if (editingUser.value) {
       await usersStore.editUser(editingUser.value.id, userData);
+      toast.success('Usuario actualizado');
     } else {
       await usersStore.addUser(userData);
+      toast.success('Usuario creado');	
     }
     showFormModal.value = false;
   } catch (error) {
     errorMessage.value = 'Error al guardar usuario';
+    toast.error(errorMessage.value);
     console.error(error);
   }
 };

@@ -59,7 +59,7 @@ npm  install
 
   
 
-Antes de ejecutar la aplicación, asegúrate de que el archivo `.env` esté configurado correctamente. Puedes crear un archivo `.env` en la raíz del proyecto y definir las variables necesarias, como `API_BASE_URL`.
+Antes de ejecutar la aplicación, asegúrate de que el archivo `.env` esté configurado correctamente. Puedes crear un archivo `.env` en la raíz del proyecto y definir las variables necesarias, como `VITE_API_BASE_URL` y `VITE_NODE_ENV`.
 
   
 
@@ -79,7 +79,7 @@ npm  run  dev
 
   
 
-Esto iniciará un servidor de desarrollo y podrás acceder a la aplicación en `http://localhost:3000` (o el puerto que se indique en la consola).
+Esto iniciará un servidor de desarrollo y podrás acceder a la aplicación en `http://localhost:5173` (o el puerto que se indique en la consola).
 
   
 

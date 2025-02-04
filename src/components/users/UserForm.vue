@@ -49,6 +49,8 @@ onMounted(async () => {
 });
 
 const onSubmit = () => {
+    console.log(form.value.courses);
+    console.log(courses.value);
     emits('submit', { ...form.value });
 };
 </script>
@@ -85,8 +87,7 @@ const onSubmit = () => {
                 <label class="block text-sm font-medium">Cursos</label>
                 <select v-model="form.courses" class="mt-1 block w-full border rounded p-2" multiple required>
                     <option value="" disabled>Seleccione cursos</option>
-                    <option v-for="course in courses" :key="course.id" :value="course.id"
-                    >
+                    <option v-for="course in courses" :key="course.id" :value="course.id">
                         {{ course.name }}
                     </option>
                 </select>
