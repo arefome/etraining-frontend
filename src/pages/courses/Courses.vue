@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { useCoursesStore } from '@/store/courses';
-import CourseForm from '@/components/courses/CourseForm.vue';
-import { useToast } from 'vue-toastification';
+import { useCoursesStore } from '../../stores/courses';
+import CourseForm from '../../components/courses/CourseForm.vue';
 
 const coursesStore = useCoursesStore();
-const toast = useToast();
 
 const showFormModal = ref(false);
-const editingCourse = ref<null | any>(null); // Puede tiparse con la interfaz Course
+const editingCourse = ref<null | any>(null);
 
 const openNewCourseForm = () => {
   editingCourse.value = null;
@@ -24,14 +22,12 @@ const onSubmitCourse = async (courseData: any) => {
   try {
     if (editingCourse.value) {
       await coursesStore.editCourse(editingCourse.value.id, courseData);
-      toast.success('Curso actualizado correctamente');
     } else {
       await coursesStore.addCourse(courseData);
-      toast.success('Curso creado correctamente');
     }
     showFormModal.value = false;
   } catch (error) {
-    toast.error('Ocurrió un error al guardar el curso');
+    console.error(error);
   }
 };
 

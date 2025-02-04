@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { fetchCourses, createCourse, updateCourse, deleteCourse } from '@/api/courses';
-import type { Course } from '@/types';
+import { fetchCourses, createCourse, updateCourse, deleteCourse } from '../api/courses';
+import type { Course } from '../types';
 
 export const useCoursesStore = defineStore('courses', {
   state: () => ({
@@ -18,6 +18,7 @@ export const useCoursesStore = defineStore('courses', {
       await this.loadCourses();
     },
     async editCourse(id: string, course: Course) {
+      console.log(id, course);
       await updateCourse(id, course);
       await this.loadCourses();
     },

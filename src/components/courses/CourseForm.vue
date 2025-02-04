@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, defineProps, defineEmits, onMounted } from 'vue';
-import { fetchCategories } from '@/api/categories'; // API para obtener categorías
-import { fetchModalities } from '@/api/modalities';   // API para obtener modalidades
+import { fetchCategories } from '../../api/categories';
+import { fetchModalities } from '../../api/modalities';
 
 interface CourseData {
   name: string;
@@ -31,7 +31,6 @@ const categories = ref<any[]>([]);
 const modalities = ref<any[]>([]);
 
 const loadDependencies = async () => {
-  // Asumiendo que tienes endpoints para categorías y modalidades
   categories.value = await fetchCategories();
   modalities.value = await fetchModalities();
 };
@@ -44,7 +43,6 @@ onMounted(() => {
 });
 
 const onSubmit = () => {
-  // Aquí podrías agregar validación antes de emitir el formulario
   emits('submit', { ...form.value });
 };
 </script>
@@ -95,6 +93,3 @@ const onSubmit = () => {
   </form>
 </template>
 
-<style scoped>
-/* Personaliza estilos adicionales si es necesario */
-</style>
