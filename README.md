@@ -125,4 +125,13 @@ serve  -s  dist
 
 Ahora podrás acceder a la aplicación en `http://localhost:5000` (o el puerto que se indique).
 
+
+## CI / CD
+
+La aplicación está configurada para utilizar GitHub Actions de Vercel para desplegar la aplicación en diferentes entornos.
+
+Para rama de Producción:
+ - URL: https://etraining-frontend-4hb2-git-staging-arefomes-projects.vercel.app/
+
+
  

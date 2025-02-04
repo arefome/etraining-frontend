@@ -6,7 +6,7 @@ import { toast } from 'vue3-toastify'
 
 const authStore = useAuthStore();
 
-const email = ref('arefome@gmail.com');
+const email = ref('test@gmail.com');
 const success = ref(false);
 const error = ref('');
 const isLoading = ref(false);
